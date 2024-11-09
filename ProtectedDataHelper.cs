@@ -1,13 +1,25 @@
-namespace SunamoShared.Helpers.Secure;
+namespace SunamoSecurity;
+using SunamoSecurity;
+using SunamoSecurity._sunamo;
+using System.Security;
+using System.Security.Cryptography;
+using System.Text;
+
 public static class ProtectedDataHelper
 {
-    public static dynamic DataProtectionScope { get; private set; }
-
-    public static string EncryptString(string salt, SecureString input)
+    public static string? EncryptString(string salt, SecureString input)
     {
         byte[] entropy = Encoding.Unicode.GetBytes(salt);
+
+        var insecureString = SecureStringHelper.ToInsecureString(input);
+
+        if (insecureString == null)
+        {
+            return null;
+        }
+
         byte[] encryptedData = ProtectedData.Protect(
-            Encoding.Unicode.GetBytes(SecureStringHelper.ToInsecureString(input)),
+            Encoding.Unicode.GetBytes(insecureString),
             entropy,
             DataProtectionScope.CurrentUser);
         return Convert.ToBase64String(encryptedData);
@@ -18,7 +30,7 @@ public static class ProtectedDataHelper
         try
         {
             byte[] entropy = Encoding.Unicode.GetBytes(salt);
-            byte[] decryptedData = null;
+            byte[] decryptedData = [];
             try
             {
                 decryptedData = ProtectedData.Unprotect(
@@ -28,7 +40,7 @@ public static class ProtectedDataHelper
             }
             catch (Exception ex)
             {
-                ThrowEx.Custom(ex);
+                ThrowEx.Custom(ex.Message);
                 return new SecureString();
             }
             return Encoding.Unicode.GetString(decryptedData).ToSecureString();

@@ -1,5 +1,8 @@
-namespace SunamoShared.Helpers.Secure;
-
+namespace SunamoSecurity;
+using SunamoSecurity.Crypting;
+using System.Net;
+using System.Runtime.InteropServices;
+using System.Security;
 
 /// <summary>
 /// Is 
@@ -23,7 +26,7 @@ public static class SecureStringHelper
 
     public static SecureString ToSecureString2(string input)
     {
-        SecureString secure = new SecureString();
+        SecureString secure = new();
         foreach (char c in input)
         {
             secure.AppendChar(c);
@@ -47,7 +50,7 @@ public static class SecureStringHelper
         return returnValue;
     }
 
-    public static string ToInsecureString(SecureString securePassword)
+    public static string? ToInsecureString(SecureString securePassword)
     {
         nint unmanagedString = nint.Zero;
         try
@@ -61,12 +64,12 @@ public static class SecureStringHelper
         }
     }
 
-    public static string DecryptString(string salt, string encrypted)
+    public static string? DecryptString(string salt, string encrypted)
     {
         return ToInsecureString(ProtectedDataHelper.DecryptString(salt, encrypted));
     }
 
-    public static string EncryptString(string salt, string encrypted)
+    public static string? EncryptString(string salt, string encrypted)
     {
         SecureString ss = encrypted.ToSecureString();
 
@@ -75,9 +78,7 @@ public static class SecureStringHelper
 
     public static CryptDelegates CreateCryptDelegates()
     {
-        CryptDelegates cd = new CryptDelegates();
-        cd.decryptString = DecryptString;
-        cd.encryptString = EncryptString;
+        CryptDelegates cd = new(DecryptString, EncryptString);
         return cd;
     }
 }
