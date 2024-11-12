@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 internal class ThrowEx
 {
-    public static void Custom(string ex)
+    internal static void Custom(string ex)
     {
         Debugger.Break();
         throw new Exception(ex);
