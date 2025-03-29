@@ -1,7 +1,6 @@
 global using SunamoSecurity;
 global using SunamoSecurity.Crypting;
 global using SunamoSecurity._sunamo;
-
 global using System.Collections.Generic;
 global using System.Diagnostics;
 global using System.Linq;
