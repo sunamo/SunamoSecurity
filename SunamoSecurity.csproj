@@ -4,8 +4,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Description>Helpers for SecureString, ProtectedData and more</Description>
-    <Version>25.3.29.1</Version>
-    <PackageReleaseNotes>Updated nuget to latest versions</PackageReleaseNotes>
+    <Version>25.6.16.1</Version>
+    <PackageReleaseNotes>Using custom scope for ProtectedData</PackageReleaseNotes>
     <Authors>www.sunamo.cz</Authors>
     <Copyright>www.sunamo.cz</Copyright>
     <PackageProjectUrl>https://sunamo.cz/</PackageProjectUrl>
