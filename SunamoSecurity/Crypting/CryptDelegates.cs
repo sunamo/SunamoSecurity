@@ -1,6 +1,7 @@
+namespace SunamoSecurity.Crypting;
+
 // EN: Variable names have been checked and replaced with self-descriptive names
 // CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
-namespace SunamoSecurity.Crypting;
 public class CryptDelegates
 {
     public CryptDelegates(Func<string, string, string?> decryptString, Func<string, string, string?> encryptString)
