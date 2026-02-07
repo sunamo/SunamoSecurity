@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="SunamoSecurity.Tests\\SunamoSecurity.Tests.csproj" />
+  <Project Path="RunnerSecurity\\RunnerSecurity.csproj" />
+  <Project Path="SunamoSecurity\SunamoSecurity.csproj" />
+</Solution>
