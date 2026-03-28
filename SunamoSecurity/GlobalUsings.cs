@@ -11,6 +11,7 @@ global using System.Security;
 global using System.Text;
 global using System.Threading.Tasks;
 global using System;
+global using System.Runtime.Versioning;
 global using ILogger = Microsoft.Extensions.Logging.ILogger;
 global using Microsoft.Extensions.Logging;
 global using NullLogger = Microsoft.Extensions.Logging.Abstractions.NullLogger;
