@@ -60,7 +60,7 @@ public static class SecureStringHelper
     /// <returns>The plain text representation of the secure string, or <c>null</c> if conversion fails.</returns>
     public static string? ToInsecureString(SecureString secureString)
     {
-        nint unmanagedString = nint.Zero;
+        nint unmanagedString = 0;
         try
         {
             unmanagedString = Marshal.SecureStringToGlobalAllocUnicode(secureString);

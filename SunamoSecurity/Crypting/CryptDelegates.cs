@@ -12,8 +12,8 @@ public class CryptDelegates
     /// <param name="encryptString">The function to encrypt a string using salt and plain text.</param>
     public CryptDelegates(Func<string, string, string?> decryptString, Func<string, string, string?> encryptString)
     {
-        this.DecryptString = decryptString;
-        this.EncryptString = encryptString;
+        DecryptString = decryptString;
+        EncryptString = encryptString;
     }
 
     /// <summary>
