@@ -1,5 +1,10 @@
 # SunamoSecurity
 
+## Short description
+
+Pomocné funkce pro SecureString, ProtectedData a další bezpečnostní úlohy. Obsahuje Runner a testy.
+
+
 Helpers for SecureString, ProtectedData and more
 
 ## Overview
