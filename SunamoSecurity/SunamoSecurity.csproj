@@ -44,4 +44,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DefineConstants>$(DefineConstants);ASYNC</DefineConstants>
   </PropertyGroup>
-</Project>
+  <ItemGroup>
+    <PackageReference Include="PolySharp" Version="1.15.0" PrivateAssets="all" />
+  </ItemGroup></Project>
